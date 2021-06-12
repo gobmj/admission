@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 st.write("""
-# SVM implementation app
+# Checking Admission Status
  """)
 svm_classifier = open('svm_model.pkl','rb')
 classifier = pickle.load(svm_classifier)
@@ -17,7 +17,7 @@ research =  st.text_input("Enter the Research:")
 submit = st.button("Check")
 
 if submit:
-        result = classifier.predict([[gre,toefl,ur,sop,lor,cgpa,reserach]])
+        result = classifier.predict([[gre,toefl,ur,sop,lor,cgpa,research]])
         if result ==1:
                 st.write("Will Get Admission")
         else:
